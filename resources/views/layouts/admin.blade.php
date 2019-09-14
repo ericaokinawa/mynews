@@ -26,12 +26,18 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <ul class="navbar-nav ml-auto">
+              
+              
               @guest
-              <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+              <li>
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}
+                </a>
+                </li>
               @else
               <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  {{ Auth::user()->name }} <span class="caret"></span>
+                  {{ Auth::user()->name }} 
+                  <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ ('logout') }}"
@@ -44,6 +50,8 @@
                 </div>
               </li>
               @endguest
+              
+              
             </ul>
           </div>
         </div>
@@ -54,3 +62,6 @@
     </div>
   </body>
 </html>
+
+
+

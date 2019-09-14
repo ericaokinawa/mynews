@@ -1,5 +1,5 @@
 @extends('layouts.profile')
-@section('title','MyProfile')
+@section('title','edite.blade.phpファイル')
 @section('content')
 <div class="container">
   <div class="row">

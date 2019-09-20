@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Profile;
 
-class Profilecontroller extends Controller
+class ProfileController extends Controller
 {
     public function add()
     {
@@ -14,7 +15,7 @@ class Profilecontroller extends Controller
     }
     public function create(Request $request)
     {
-      $this->validate($request, profile::$rules);
+      $this->validate($request, Profile::$rules);
       
       $profile = new Profile;
       $form = $request->all();

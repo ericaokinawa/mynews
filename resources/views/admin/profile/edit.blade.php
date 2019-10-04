@@ -23,37 +23,38 @@
           <div class="form-group row">
             <label class="col-md-2" for="gender">性別</label>
               <div class="col-md-10">
-                <label class="col-md-2" for="male">男性</label>
+                <label class="col-md-2" for="male">男性
                   <input type="radio" class="form-control" name="gender" {{ old('gender', 'male') == 'male' ? 'checked' : ''}}>
-              </div>
-              <div class="col-md-10">
-                <label class="col-md-2" for="female">女性</label>
+                </label>
+                <label class="col-md-2" for="female">女性
                   <input type="radio" class="form-control" name="gender" {{ old('gender', 'femle') == 'male' ? 'checked' : ''}}>
+                </label>
               </div>
           </div>
           
           <div class="form-group row">
             <label class="col-md-2" for="hobby">趣味</label>
               <div class="col-md-10">
-                <textarea type="text" class="form-control" name="hobby" value="{{ $profile_form->hobby }}">
+                <textarea type="text" class="form-control" name="hobby" rouws="20">{{ $profile_form->hobby }}
+                </textarea>
               </div>
           </div>
           
           <div class="form-group row">
             <label class="col-md-2" for="introduction">自己紹介</label>
               <div class="col-md-10">
-                <textarea type="text" class="form-control" name="introdction" value="{{ $profile_form->introdction }}">
+                <textarea type="text" class="form-control" name="introduction" rouws="20">{{ $profile_form->introduction }}
+                </textarea>
               </div>
           </div>
             
-          <div class="form-group row">
+            <div class="form-group row">
               <div class="col-md-10">
-                <input type="hidden" name="id" value="{{ $news_form->id }}">
-                  {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{ $profile_form->id }}">
+                {{ csrf_field() }}
                 <input type="submit" class="btn btn-primary" value="更新">
-              </div>
-          </div>
-          
+            </div>
+            </div>
           
         </form>
       </div>

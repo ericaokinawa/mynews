@@ -56,20 +56,17 @@ public function update(Request $request)
       $profile = Profiles::find($request->id);
       
         // 送信されてきたフォームデータを格納
-      $profileform = $request->all();
+      $profile_form = $request->all();
       
-      unset($profileform['remove']);
-      unset($profileform['token']);
-
        // 該当するデータを上書きして保存
       $profile->fill($profile_form)->save();
-      return redirect('admin/profile/');
+      return redirect('admin/profile');
     }
     
 public function delete(Request $request)
     {
       $profile = Profiles::find($request->id);
       $profile->delete();
-      return redirect('admin/profile/');
+      return redirect('admin/profile');
     }
 }

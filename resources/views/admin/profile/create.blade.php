@@ -16,7 +16,7 @@
         @endif
           <br>
               <div class="form-rtop row">
-                <label class="col-md-2" for="name">氏名</label>
+                <label class="col-md-2" for="name">名前</label>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                 </div>

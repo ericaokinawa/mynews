@@ -1,6 +1,5 @@
 @extends('layouts.profile')
 @section('title','Myプロフィール')
-
 @section('content')
 <div class="container">
   <div class="row">
@@ -14,7 +13,7 @@
               <li>{{ $e }}</li>
             @endforeach
           </ul>
-          @endif
+        @endif
           <br>
               <div class="form-rtop row">
                 <label class="col-md-2" for="name">氏名</label>
@@ -27,10 +26,11 @@
                 <label class="col-md-2" for="gender">性別</label>
                 <div class="col-md-10">
                     <label class="col-md-2" for="male">男性
-                      <input type="radio" class="form-control" name="gender" value="{{ old('gender') }}">
+                      <input type="radio" class="form-control" name="gender" value="{{ old('gender', 'male') == 'male' ? 'checked' : ''}}">
+ 
                     </label>
                     <label class="col-md-2" for="female">女性
-                    <input type="radio" class="form-control" name="gender" value="{{ old('gender') }}">
+                    <input type="radio" class="form-control" name="gender" value="{{ old('gender', 'female') == 'female' ? 'checked' : ''}}">
                     </label>
                 </div>
                </div>

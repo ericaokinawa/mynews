@@ -26,11 +26,11 @@
                 <label class="col-md-2" for="gender">性別</label>
                 <div class="col-md-10">
                     <label class="col-md-2" for="male">男性
-                      <input type="radio" class="form-control" name="gender" value="{{ old('gender', 'male') == 'male' ? 'checked' : ''}}">
+                      <input type="radio" class="form-control" name="gender" value="male" {{ old('gender') === 'male' ? 'checked' : ''}}>
  
                     </label>
                     <label class="col-md-2" for="female">女性
-                    <input type="radio" class="form-control" name="gender" value="{{ old('gender', 'female') == 'female' ? 'checked' : ''}}">
+                    <input type="radio" class="form-control" name="gender" value="female" {{ old('gender') === 'female' ? 'checked' : ''}}>
                     </label>
                 </div>
                </div>
@@ -38,16 +38,14 @@
               <div class="form-rtop row">
                 <label class="col-md-2" for="hobby">趣味</label>
                 <div class="col-md-10">
-                  <textarea type="text" class="form-control" name="hobby" value="{{ old('hobby') }}">
-                  </textarea>
+                  <textarea type="text" class="form-control" name="hobby">{{ old('hobby') }}</textarea>
                 </div>
               </div>
           <br>
               <div class="form-rtop row">
                 <label class="col-md-2" for="introduction">自己紹介欄</label>
                 <div class="col-md-10">
-                  <textarea type="text" class="form-control" name="introduction" value="{{ old('introduction') }}">
-                  </textarea>
+                  <textarea type="text" class="form-control" name="introduction">{{ old('introduction') }}</textarea>
                 </div>
               </div>
           <br>    

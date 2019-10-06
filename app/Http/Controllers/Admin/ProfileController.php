@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profiles;
+use App\Profilehitsory;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -15,9 +17,9 @@ public function add()
     
 public function create(Request $request)
     {
-      // Varidationをかける
+        // Varidationをかける
       $this->validate($request, Profiles::$rules);
-      // Profile Modelからデータを取得
+       // Profile Modelからデータを取得
       $profile = new Profiles;
       $form = $request->all();
     
@@ -60,6 +62,12 @@ public function update(Request $request)
       
        // 該当するデータを上書きして保存
       $profile->fill($profile_form)->save();
+      
+      $profilehistory = new Profilehistory;
+      $profilehistory->profiles_id = $profile->id;
+      $profilehistory->edited_at = Carbon::now();
+      $profilehistory->save();
+      
       return redirect('admin/profile');
     }
     

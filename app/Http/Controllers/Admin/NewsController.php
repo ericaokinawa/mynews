@@ -3,7 +3,16 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+  // News Model
 use App\News;
+  // History Model
+use App\History;
+  // History Modelのedited_at として記録される
+use Carbon\Carbon;
+
+
+
 
 class NewsController extends Controller
 {
@@ -59,17 +68,18 @@ public function edit(Request $request)
     
 public function update(Request $request)
     {
-      // Varidationをかける
+        // Varidationをかける
       $this->validate($request, News::$rules);
       
-      // News Modelからデータを取得
+        // News Modelからデータを取得
       $news = News::find($request->id);
       
-      // 送信されてきたフォームデータを格納する
+        // 送信されてきたフォームデータを格納する
       $news_form = $request->all();
+      
       if ( isset($news_form['image'])) {
         $path = $request->file('image')->store('public/image');
-        // 画像でなく、名前を取得
+          // 画像でなく、名前を取得
         $news->image_path = basename($path);
         unset($news_form['image']);
       } elseif (isset($request->remove)) {
@@ -78,7 +88,15 @@ public function update(Request $request)
       }
       unset($news_form['_token']);
       
+        // データを上書き保存
       $news->fill($news_form)->save();
+      
+      $history = new History;
+      $history->news_id = $news->id;
+        // carbon入力時刻を取得　
+      $history->edited_at = Carbon::now();
+      $history->save();
+      
       return redirect('admin/news');
     
 }

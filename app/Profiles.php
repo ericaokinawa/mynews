@@ -16,6 +16,7 @@ class Profiles extends Model
       
       public function profilehistories()
       {
+        // profilehistoryテーブルを全て取得
         return $this->hasmany('App\Profilehistory');
       }
 }

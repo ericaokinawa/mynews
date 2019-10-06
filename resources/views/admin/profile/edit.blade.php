@@ -59,8 +59,16 @@
                 <h2>編集履歴</h2>
                 <ul class="list-group">
                   @if ($profile_form->profilehistories !=NULL)
+                  
+                      <!---->profilehistories　Profiles.php　hasmanyでproilehistoriesのファイルを全て取得
                     @foreach ($profile_form->profilehistories as $profilehistory)
                       <li class="list-group-item">{{ $profilehistory->edited_at }}</li>
+                   
+                   
+                     <!--もし変更履歴がなければNLL
+                       foreach文ではNULLに対して使うとエラーになるため、
+                       ifで変更履歴がなければNULL
+                       変更履歴があればそれを全て表示する-->
                     @endforeach
                   @endif
                 </ul>

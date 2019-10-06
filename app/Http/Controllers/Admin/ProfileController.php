@@ -65,6 +65,8 @@ public function update(Request $request)
       
       $profilehistory = new Profilehistory;
       $profilehistory->profiles_id = $profile->id;
+      
+        //corbon日時を扱うライブラリ 
       $profilehistory->edited_at = Carbon::now();
       $profilehistory->save();
       

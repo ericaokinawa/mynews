@@ -30,13 +30,13 @@
         <div class="form-group row">
           <label class="col-md-2" for="good">今日できた事</label>
           <div class="col-md-10">
-            <textarea class="form-control" name="good" rows="20">{{ old('good') }}</textarea>
+            <textarea class="form-control" name="good" rows="10">{{ old('good') }}</textarea>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-2" for="bad">今日できなかった事</label>
           <div class="col-md-10">
-            <textarea class="form-control" name="bad" rows="20">{{ old('bad') }}</textarea>
+            <textarea class="form-control" name="bad" rows="10">{{ old('bad') }}</textarea>
           </div>
         </div>
         <div class="form-group row">

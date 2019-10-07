@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function() {
  
@@ -32,6 +29,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function() {
   
    // ニュース編集削除
   Route::get('news/delete', 'Admin\NewsController@delete');
+  
+
+  
  
    //プロフィール登録画面
   Route::get('profile/create', 'Admin\ProfileController@add');
@@ -41,6 +41,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function() {
   Route::post('profile/edit', 'Admin\ProfileController@update');
   Route::get('profile/delete', 'Admin\ProfileController@delete');  
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+  // ユーザー画面
+  Route::get('/', 'NewsController@index');
+  
+  Route::get('/profile', 'ProfileController@index');

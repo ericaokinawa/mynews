@@ -16,7 +16,7 @@
           <div class="form-group row">
             <label class="col-md-2" for="name">名前</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" name="name" value="{{ old('name'), $profile_form->name }}">
+                <input type="text" class="form-control" name="name" value="{{ old('name', $profile_form->name) }}">
               </div>
           </div>
           

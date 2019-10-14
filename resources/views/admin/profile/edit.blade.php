@@ -60,7 +60,7 @@
                 <ul class="list-group">
                   @if ($profile_form->profilehistories !=NULL)
                   
-                      <!---->profilehistories　Profiles.php　hasmanyでproilehistoriesのファイルを全て取得
+                      <!--profilehistories　Profiles.php　hasmanyでproilehistoriesのファイルを全て取得-->
                     @foreach ($profile_form->profilehistories as $profilehistory)
                       <li class="list-group-item">{{ $profilehistory->edited_at }}</li>
                    
